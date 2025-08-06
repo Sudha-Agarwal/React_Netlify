@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
-//import BASE_URL  from '../apiConfig';
-const BASE_URL = import.meta.env.VITE_API_URL;
+import BASE_URL  from '../apiConfig';
+//const BASE_URL = import.meta.env.VITE_API_URL;
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {

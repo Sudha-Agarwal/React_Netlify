@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../apiConfig';
+
 
 function Dashboard() {
   const { user, logout } = useContext(AuthContext);
@@ -20,7 +22,7 @@ console.log('Dashboard user:', user);
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('http://localhost:3001/protected');
+      const response = await axios.get(`${BASE_URL}/protected`);
       setProtectedData(response.data);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to fetch protected data');
